@@ -1,25 +1,45 @@
 version: '3.8'
 services:
-  aggregator-api:
-    image: kybernetique/aggregator-api:latest
+  aggregator-api-service:
+#    image: kybernetique/aggregator-api:latest
+    build:
+      context: ./aggregator-api
+      dockerfile: Dockerfile
     ports:
       - "8081:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-service/aggregator_db
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=create-drop
+    depends_on:
+      - postgres-service
     networks:
       backend:
         aliases:
           - "aggregator"
 
 
-  parser-api:
-    image: kybernetique/parser-api:latest
+  parser-api-service:
+#    image: kybernetique/parser-api:latest
+    build:
+      context: ./parser-api
+      dockerfile: Dockerfile
     ports:
       - "8082:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-service/aggregator_db
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=create-drop
+    depends_on:
+      - postgres-service
     networks:
       backend:
         aliases:
           - "parser"
 
-  postgres:
+  postgres-service:
     image: postgres:14.1
     container_name: postgres-db
     restart: always
@@ -33,11 +53,8 @@ services:
       backend:
         aliases:
           - "postgres"
-    depends_on:
-      - aggregator-api
-      - parser-api
 
-  nginx:
+  nginx-service:
     image: nginx:latest
     ports:
       - "81:80"
@@ -48,9 +65,9 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
     depends_on:
-      - aggregator-api
-      - parser-api
-      - postgres
+      - aggregator-api-service
+      - parser-api-service
+      - postgres-service
 
 networks:
   backend:
