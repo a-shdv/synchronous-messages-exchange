@@ -2,7 +2,7 @@ FROM openjdk:17-jdk-slim
 
 WORKDIR /app
 
-COPY target/parser-api-1.0-SNAPSHOT.jar /app
+COPY parser-api-1.0-SNAPSHOT.jar /app
 
 EXPOSE 8080
 
