@@ -1,10 +1,12 @@
 package com.company.service.impl;
 
+import com.company.dto.JobInfoDto;
 import com.company.dto.PageDto;
 import com.company.model.Page;
 import com.company.repo.PageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,10 +15,12 @@ import java.util.UUID;
 @Service
 public class PageService implements com.company.service.PageService {
     private final PageRepository pageRepository;
+    private final RestTemplate restTemplate;
 
     @Autowired
-    public PageService(PageRepository pageRepository) {
+    public PageService(PageRepository pageRepository, RestTemplate restTemplate) {
         this.pageRepository = pageRepository;
+        this.restTemplate = restTemplate;
     }
 
     @Override
@@ -46,5 +50,11 @@ public class PageService implements com.company.service.PageService {
     public UUID deletePageByUUID(UUID uuid) {
         pageRepository.deleteById(uuid);
         return uuid;
+    }
+
+    @Override
+    public JobInfoDto findJobInfo(UUID jobUUID) {
+        String jobInfoUrl = "http://nginx/aggregator-api/" + jobUUID;
+        return restTemplate.getForObject(jobInfoUrl, JobInfoDto.class);
     }
 }

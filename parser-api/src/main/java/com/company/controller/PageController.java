@@ -1,5 +1,6 @@
 package com.company.controller;
 
+import com.company.dto.JobInfoDto;
 import com.company.dto.PageDto;
 import com.company.exception.PageNotFoundException;
 import com.company.model.Page;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 import java.util.UUID;
@@ -66,4 +68,10 @@ public class PageController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+
+    @GetMapping("/find-job-info/{uuid}")
+    public ResponseEntity<?> findJobInfo(@PathVariable UUID uuid) {
+        return ResponseEntity.ok().body(pageService.findJobInfo(uuid));
+    }
+
 }
