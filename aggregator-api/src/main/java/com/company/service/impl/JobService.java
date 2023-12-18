@@ -1,6 +1,6 @@
 package com.company.service.impl;
 
-import com.company.dtos.JobDto;
+import com.company.dto.JobDto;
 import com.company.model.Job;
 import com.company.repo.JobRepository;
 import org.springframework.beans.factory.annotation.Autowired;

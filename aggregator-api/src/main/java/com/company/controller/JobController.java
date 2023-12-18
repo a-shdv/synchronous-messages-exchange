@@ -1,6 +1,6 @@
 package com.company.controller;
 
-import com.company.dtos.JobDto;
+import com.company.dto.JobDto;
 import com.company.exceptions.JobAlreadyExistsException;
 import com.company.exceptions.JobNotFoundException;
 import com.company.model.Job;

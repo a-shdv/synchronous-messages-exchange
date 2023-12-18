@@ -1,6 +1,6 @@
 package com.company.service;
 
-import com.company.dtos.JobDto;
+import com.company.dto.JobDto;
 import com.company.model.Job;
 
 import java.util.List;
