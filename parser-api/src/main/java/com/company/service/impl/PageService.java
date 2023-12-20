@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -24,21 +25,25 @@ public class PageService implements com.company.service.PageService {
     }
 
     @Override
+    @Transactional
     public Page save(PageDto pageDto) {
         return pageRepository.save(PageDto.toPage(pageDto));
     }
 
     @Override
+    @Transactional
     public List<Page> findAll() {
         return pageRepository.findAll();
     }
 
     @Override
+    @Transactional
     public Optional<Page> findPageByUUID(UUID uuid) {
         return Optional.ofNullable(pageRepository.findById(uuid).get());
     }
 
     @Override
+    @Transactional
     public Page updatePageByUUID(UUID uuid, PageDto pageDto) {
         Page page = pageRepository.findById(uuid).get();
         page.setHeader(pageDto.getHeader());
@@ -47,14 +52,16 @@ public class PageService implements com.company.service.PageService {
     }
 
     @Override
+    @Transactional
     public UUID deletePageByUUID(UUID uuid) {
         pageRepository.deleteById(uuid);
         return uuid;
     }
 
     @Override
+    @Transactional
     public JobInfoDto findJobInfo(UUID jobUUID) {
-        String jobInfoUrl = "http://nginx/aggregator-api/" + jobUUID;
+        String jobInfoUrl = "http://nginx/aggregator-api/jobs/" + jobUUID;
         return restTemplate.getForObject(jobInfoUrl, JobInfoDto.class);
     }
 }
