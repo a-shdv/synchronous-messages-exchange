@@ -11,63 +11,56 @@
 ### Сервис Aggregator
 <u>POST-метод для создания вакансии</u>
 
-![img.png](screenshots/img.png)
+![1.png](screenshots%2F1.png)
 
 <u>GET-метод для получения вакансии по id</u>
 
-![img_3.png](screenshots/img_3.png)
+![2.png](screenshots%2F2.png)
 
 <u>GET-метод для получения списка вакансий</u>
 
-![img_2.png](screenshots/img_2.png)
+![3.png](screenshots%2F3.png)
 
 <u>PUT-метод для обновления вакансии</u>
 
-![img_4.png](screenshots/img_4.png)
+![4.png](screenshots%2F4.png)
 
 <u>DELETE-метод для удаления вакансии</u>
 
-![img_5.png](screenshots/img_5.png)
+![5.png](screenshots%2F5.png)
 
 ### Метод, связывающий оба микросервиса
-<u>В контроллере:</u>
-![img.png](screenshots/img.png)
-
-<u>В сервисе:</u>
-
-![img_1.png](screenshots/img_1.png)
-
-![img_2.png](screenshots/img_2.png)
-
 <u>Демонстрация работы:</u>
 
-![img.png](screenshots/img_12.png)
+![img_12.png](screenshots%2Fimg_12.png)
 
 ### Сущности
 Page -> Jobs (One-to-Many)
 
-![img.png](screenshots/img.png)
+![img.png](screenshots/test/img.png)
 
-![img_1.png](screenshots/img_1.png)
+![img_1.png](screenshots/test/img_1.png)
 
 ### Dockerfile (aggregator-api)
 
-![img_2.png](screenshots/img_2.png)
+![img_2.png](screenshots/test/img_2.png)
 
 ### Dockerfile (parser-api)
 
-![img_3.png](screenshots/img_3.png)
+![img_3.png](screenshots/test/img_3.png)
 
 ### Docker compose
 
-![img_4.png](screenshots/img_4.png)
+![img_4.png](screenshots/test/img_4.png)
 
-![img_5.png](screenshots/img_5.png)
+![img_5.png](screenshots/test/img_5.png)
 
-![img_6.png](screenshots/img_6.png)
+![img_6.png](screenshots/test/img_6.png)
 
-![img_7.png](screenshots/img_7.png)
+![img_7.png](screenshots/test/img_7.png)
 
 ### Nginx
+![img_8.png](screenshots%2Ftest%2Fimg_8.png)
 
-![img_8.png](screenshots/img_8.png)
+## Ссылка на видео:
+https://youtu.be/oPLQxyRDlXw
