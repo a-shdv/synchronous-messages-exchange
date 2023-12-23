@@ -19,6 +19,5 @@ public class Page {
     @Id
     @GeneratedValue
     private UUID id;
-    private String header;
-    private String body;
+    private String jobUrl;
 }

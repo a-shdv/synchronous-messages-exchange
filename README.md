@@ -29,26 +29,45 @@
 
 ![img_5.png](screenshots/img_5.png)
 
-### Сервис Parser
-<u>POST-метод для создания страницы</u>
+### Метод, связывающий оба микросервиса
+<u>В контроллере:</u>
+![img.png](screenshots/img.png)
+
+<u>В сервисе:</u>
+
+![img_1.png](screenshots/img_1.png)
+
+![img_2.png](screenshots/img_2.png)
+
+<u>Демонстрация работы:</u>
+
+![img.png](screenshots/img_12.png)
+
+### Сущности
+Page -> Jobs (One-to-Many)
+
+![img.png](screenshots/img.png)
+
+![img_1.png](screenshots/img_1.png)
+
+### Dockerfile (aggregator-api)
+
+![img_2.png](screenshots/img_2.png)
+
+### Dockerfile (parser-api)
+
+![img_3.png](screenshots/img_3.png)
+
+### Docker compose
+
+![img_4.png](screenshots/img_4.png)
+
+![img_5.png](screenshots/img_5.png)
 
 ![img_6.png](screenshots/img_6.png)
 
-<u>GET-метод для получения списка страниц</u>
-
 ![img_7.png](screenshots/img_7.png)
 
-<u>GET-метод для получения страницы по id</u>
+### Nginx
 
 ![img_8.png](screenshots/img_8.png)
-
-<u>PUT-метод для изменения страницы</u>
-
-![img_9.png](screenshots/img_9.png)
-
-<u>DELETE-метод для удаления страницы по ID</u>
-
-![img_11.png](screenshots/img_11.png)
-
-### Метод, связывающий оба микросервиса
-![img.png](screenshots/img_12.png)

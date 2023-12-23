@@ -46,8 +46,7 @@ public class PageService implements com.company.service.PageService {
     @Transactional
     public Page updatePageByUUID(UUID uuid, PageDto pageDto) {
         Page page = pageRepository.findById(uuid).get();
-        page.setHeader(pageDto.getHeader());
-        page.setBody(pageDto.getBody());
+        page.setJobUrl(pageDto.getJobUrl());
         return pageRepository.save(page);
     }
 
